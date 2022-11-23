@@ -8,7 +8,7 @@ let selectDate = document.getElementById("cdate");
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 let monthAndYear = document.getElementById("monthAndYear");
-showCalendar(currentMonth, currentYear);
+showCalendar(parseInt(selectDate.value), currentMonth, currentYear);
 
 
 
@@ -57,8 +57,11 @@ function showCalendar(currentDate, month, year) {
             else {
                 let cell = document.createElement("td");
                 let cellText = document.createTextNode(date);
-                if (currentDate != null && year === today.getFullYear() && month === today.getMonth()) {
+                console.log(date);
+                
+                if (currentDate === date && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("bg-info");
+                    
                 }
                  else if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("bg-info");
